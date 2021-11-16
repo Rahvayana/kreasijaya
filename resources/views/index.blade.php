@@ -195,7 +195,7 @@
           <a href="{{ route('detail', $portfolio->id) }}">
             <div class="col-lg-4 col-md-6 portfolio-item {{$portfolio->kategori}}">
               <div class="portfolio-wrap">
-                <img src="{{ env('BASE_IMAGE').json_decode($portfolio->image)[0]}}" class="img-fluid" alt="">
+                <img src="https://dashboard.kreasijaya.com/images/portfolio/{{.json_decode($portfolio->image)[0]}}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>{{$portfolio->title}}</h4>
                   <p>{{$portfolio->kategori}}</p>
