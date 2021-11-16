@@ -200,7 +200,7 @@
                   <h4>{{$portfolio->title}}</h4>
                   <p>{{$portfolio->kategori}}</p>
                   <div class="portfolio-links">
-                    <a href="{{ env('BASE_IMAGE').json_decode($portfolio->image)[0]}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                    <a href="https://dashboard.kreasijaya.com/images/portfolio/{{json_decode($portfolio->image)[0]}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
                     <a href="{{ route('detail', str_replace(' ','-',strtolower($portfolio->title))) }}" title="More Details"><i class="bx bx-link"></i></a>
                   </div>
                 </div>
