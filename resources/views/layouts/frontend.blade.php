@@ -32,7 +32,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <meta name="google-site-verification" content="W2w3M_RLpUgpjKtgSLaCD3bZlYoKkGfGDDgm5MiOkmc" />
+  {{-- <meta name="google-site-verification" content="W2w3M_RLpUgpjKtgSLaCD3bZlYoKkGfGDDgm5MiOkmc" /> --}}
 </head>
 
 <body>
