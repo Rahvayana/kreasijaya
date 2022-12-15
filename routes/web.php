@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/{slug}',[HomeController::class,'detail'])->name('detail');
 
+Route::post('/email',[HomeController::class,'email'])->name('email');
+
+
 Auth::routes();

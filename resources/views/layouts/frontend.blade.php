@@ -25,6 +25,7 @@
 
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
+  @yield('style')
 
   <!-- =======================================================
   * Template Name: Butterfly - v4.3.0
@@ -47,11 +48,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto " href="#counts">Achievement</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto " href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="{{ route('home') }}#hero">Home</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('home') }}#counts">Achievement</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('home') }}#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('home') }}#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('home') }}#contact">Contact</a></li>
           {{-- @if (Route::has('login'))
                 @auth
                     <li><a class="nav-link scrollto" href="{{ url('/home') }}">Home</a></li>

@@ -1,4 +1,17 @@
 @extends('layouts.frontend')
+@section('style')
+    <style>
+      .btn-submit{
+        background: #97ca64;
+        border: 0;
+        padding: 10px 24px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+    </style>
+@endsection
  <!-- ======= Hero Section ======= -->
 @section('content')
 <section id="hero" class="d-flex align-items-center">
@@ -153,13 +166,13 @@
           <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-bell" style="color: #d6ff22;"></i></div>
-              <h4 class="title"><a href="">Tell Revision</a></h4>
+              <h4 class="title"><a href="">Discuss Revision</a></h4>
               <p class="description">Tell the revision you have that missed from your goal, we can discuss before we send the project.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi- file-play" style="color: #4680ff;"></i></div>
+              <div class="icon"><i class="bi bi-file-play" style="color: #4680ff;"></i></div>
               <h4 class="title"><a href="">Send the Project</a></h4>
               <p class="description">We will send the project after every step completed and after you agree of course.</p>
             </div>
@@ -192,7 +205,7 @@
         <div class="row portfolio-container">
 
           @foreach ($portfolios as $portfolio)
-          <a href="{{ route('detail', $portfolio->id) }}">
+          <a href="{{ route('detail', str_replace(' ','-',strtolower($portfolio->title))) }}">
             <div class="col-lg-4 col-md-6 portfolio-item {{$portfolio->kategori}}">
               <div class="portfolio-wrap">
                 <img src="https://dashboard.kreasijaya.com/images/portfolio/{{json_decode($portfolio->image)[0]}}" class="img-fluid" alt="">
@@ -438,7 +451,7 @@
         </div>
 
         <div>
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1979.5695823721321!2d112.41826094820955!3d-7.109866588906551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77f1286b9d2ea7%3A0xcb8c8ee0654b6ead!2sPerumahan%20Zamrud!5e0!3m2!1sid!2sid!4v1641700569747!5m2!1sid!2sid" frameborder="0" allowfullscreen ></iframe>
         </div>
 
         <div class="row mt-5">
@@ -448,7 +461,7 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>Perumahan Zamrud No. 134 Dapur Lamongan</p>
+                <p>Perumahan Zamrud Blok AQUAMARINE I No. 4 Lamongan</p>
               </div>
 
               <div class="email">
@@ -468,8 +481,7 @@
           </div>
 
           <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form" id="contact">
+            <form action="{{ route('email') }}" method="post" > @csrf
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -484,12 +496,7 @@
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+                <button class="btn-submit" type="submit">Send Message</button>
             </form>
 
           </div>

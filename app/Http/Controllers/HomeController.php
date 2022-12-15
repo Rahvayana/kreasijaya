@@ -42,8 +42,24 @@ class HomeController extends Controller
         ->where('title',$title)
         ->first();
         // dd($data);
+
+        $data['portfolios']=DB::table('portfolios')->select('portfolios.*','categories.name as kategori')
+        ->leftJoin('categories','categories.id','portfolios.category_id')
+        ->where('title','!=',$title)
+        ->get();
         return view('detail',$data);
 
 
+    }
+
+    public function email(Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'subject'=>'required',
+            'message'=>'required',
+        ]);
+        dd($request);
     }
 }

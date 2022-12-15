@@ -48,6 +48,11 @@
                 <li><strong>Project URL</strong>: <a href="#">{{$portfolio->url}}</a></li>
               </ul>
             </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
             <div class="portfolio-description">
               <h2>{{$portfolio->title}}</h2>
               <p style="text-align: justify;">
@@ -55,11 +60,30 @@
               </p>
             </div>
           </div>
-
         </div>
 
       </div>
     </section><!-- End Portfolio Details Section -->
+    <section>
+      <div class="container">
+        <h3 class="text-center">Mungkin Anda Tertarik</h3>
+        <div class="row">
+          @foreach ($portfolios as $portfolio)
+          <div class="col-md-4">
+          <div class="card">
+            <img src="https://dashboard.kreasijaya.com/images/portfolio/{{json_decode($portfolio->image)[0]}}" style="width: 100%" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">{{$portfolio->title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{$portfolio->kategori}}</h6>
+              <a href="{{ route('detail', str_replace(' ','-',strtolower($portfolio->title))) }}" class="btn btn-outline-primary">Add to Cart</a>
+            </div>
+          </div>
+          </div>
+          @endforeach
+
+        </div>
+      </div>
+    </section>
 
   </main><!-- End #main -->
 @endsection
